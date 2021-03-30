@@ -464,7 +464,7 @@ int Pump::run()
             pid_t pid;
             Kill(pid_t pid) : pid(pid) {}
             ~Kill() {
-                if (std::uncaught_exception()) {
+                if (std::uncaught_exceptions()) {
                     ::kill(pid, SIGKILL);
                 }
             }

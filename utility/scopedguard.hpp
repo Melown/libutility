@@ -47,7 +47,7 @@ public:
     {}
 
     ~ScopedGuard() noexcept(false) {
-        if (std::uncaught_exception()) {
+        if (std::uncaught_exceptions()) {
             // some other exception -> do not propagate
             try { cleanup_(); } catch (...) {}
         } else {
